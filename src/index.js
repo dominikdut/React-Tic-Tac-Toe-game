@@ -12,16 +12,10 @@ function Square(props) {
   }
 
 class Board extends React.Component {
-    this.state = {
-      squares: Array(9).fill(null),
-      xIsNext: true,
-    };
-
-
-  handleClick(i) {
-    const squares = this.state.squares.slice();
-    if (calculateWinner(squares) || squares[i]) {
-      return;
+    handleClick (i){
+      const squares = this.state.squares.slice();
+      if (calculateWinner(squares) || squares[i]) {
+        return;
     }
     squares[i] = this.state.xIsNext ? 'X' : 'O';
     this.setState({
@@ -33,7 +27,7 @@ class Board extends React.Component {
   renderSquare(i) {
     return (
       <Square
-      value={this.state.squares[i]}
+      value={this.props.squares[i]}
       onClick={() => this.handleClick(i)}
     />
     );
