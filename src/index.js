@@ -12,7 +12,7 @@ function Square(props) {
   }
 
 class Board extends React.Component {
-    handleClick (i){
+    handleClick(i) {
       const squares = this.state.squares.slice();
       if (calculateWinner(squares) || squares[i]) {
         return;
@@ -28,7 +28,7 @@ class Board extends React.Component {
     return (
       <Square
       value={this.props.squares[i]}
-      onClick={() => this.handleClick(i)}
+      onClick={() => this.props.onClick(i)}
     />
     );
   }
